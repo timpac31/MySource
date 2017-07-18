@@ -3,7 +3,7 @@
 
 <sqlMap namespace="MyTest">
 
-	<typeAlias alias="myResult" type="xml.dao.IbatisBean"/> 
+	<typeAlias alias="myResult" type="xml.dao.mytest.IbatisBean"/> 
 	
    <select id="getAll" parameterClass="myResult" resultClass="myResult">
       SELECT seq,name,center,regdate, applynum, remark FROM GSEDU
