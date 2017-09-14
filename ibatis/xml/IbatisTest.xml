@@ -12,5 +12,9 @@
       seq = #seq#
       </isNotEmpty>
    </select>
+   
+   <select id="getDetail" parameterClass="java.lang.Integer" resultClass="myResult">
+   		SELECT seq,name,center,regdate, applynum, remark FROM GSEDU WHERE SEQ = #seq#
+   </select>
 	
 </sqlMap>

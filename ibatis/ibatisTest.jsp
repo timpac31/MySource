@@ -9,6 +9,8 @@
 	bean.setSeq(183);
 	List<IbatisBean> geduList = dao.getAll(bean);
 	
+	IbatisBean geduDetail = dao.getDetail(180);
+	
 	/* for(IbatisBean data : geduList){
 		out.println(data.getName());
 		out.println(data.getRegDate());
@@ -25,7 +27,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- <c:set var ="geduList" value="<%=geduList %>"/> --%>
+
 	<c:forEach items="<%=geduList %>" var="data" varStatus="index">
 		<table>
 			<tr>
@@ -37,5 +39,11 @@
 		</table>
 	</c:forEach>
 
+	<c:set var ="ddata" value="<%=geduDetail %>"/>
+	${ddata.name} 
+	${ddata.regDate }
+	${ddata.remark }
+	${ddata.center }
+	
 </body>
 </html>
