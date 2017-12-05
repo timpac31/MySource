@@ -16,7 +16,8 @@
 		out.println(data.getRegDate());
 		out.println(data.getRemark());
 		out.println(data.getApplyNum());
-	} */
+	} *
+	
 %>
 
 
