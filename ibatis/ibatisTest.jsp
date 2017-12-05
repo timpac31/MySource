@@ -38,10 +38,7 @@
 	</c:forEach>
 
 	<c:set var ="ddata" value="<%=geduDetail %>"/>
-	${ddata.name} 
-	${ddata.regDate }
-	${ddata.remark }
-	${ddata.center }
+	
 	
 </body>
 </html>
