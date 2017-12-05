@@ -27,7 +27,7 @@
 <body>
 	
 	<c:forEach items="<%=geduList %>" var="data" varStatus="index">
-		<table>
+		<table class="tb1">
 			<tr>
 				<td>${data.name }</td>
 				<td>${data.regDate }</td>
