@@ -17,6 +17,8 @@
 		out.println(data.getRemark());
 		out.println(data.getApplyNum());
 	} 
+
+	
 %>
 
 
