@@ -11,12 +11,12 @@
 	
 	IbatisBean geduDetail = dao.getDetail(180);
 	
-	/* for(IbatisBean data : geduList){
+	for(IbatisBean data : geduList){
 		out.println(data.getName());
 		out.println(data.getRegDate());
 		out.println(data.getRemark());
 		out.println(data.getApplyNum());
-	} */
+	} 
 %>
 
 
