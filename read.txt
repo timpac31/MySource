@@ -1,5 +1,6 @@
-agdadfgdafgdafg
+agd123adfgdafgdafg
 dfgdf
+<<<<<<< HEAD
 1234삭afdgdafg제5ㅇㅀ80
 435345345fg
 fd3434adfhadffg
@@ -9,4 +10,11 @@ fagdsgg
 fdagafdg
 vonmcofa호호gvni
 afgㅇdfgfdgdg
+=======
+1234삭afdgdaf123g제5ㅇㅀ80
+435345345123fg
+fd3434adf123hadffg
+123
+123afgㅇㅀfdg
+>>>>>>> 245764d9dc97ae1155da46feb2c60e431c861209
 31
