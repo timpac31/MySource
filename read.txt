@@ -1,6 +1,7 @@
 ﻿<html>
 <body>
   <div id="repository">
+	<h2>제목</h2>
     <table class="tab1">
       <tr><td>31</td></tr>
       <tr><td>2</td></tr>
