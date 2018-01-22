@@ -2,7 +2,6 @@
 > 지정된 옵션으로 레이어 팝업을 띄운다
 
 ## Usage
-1. example.html
 ~~~
 <!doctype html>
 <html>
@@ -43,8 +42,8 @@ option name        | Description                          | ex                  
 `id`               | `팝업창 div element의 아이디를 등록`   | `mainPopLayer`           | Y
 `left`             | `팝업창 left 포지션`                  | `100px`                  | Y
 `top`              | `팝업창 top 포지션`                   | `100px`                  | Y
-`startDate`        | `게시 시작 날짜`                      | `yyyy/mm/dd hh/MM/ss`    | Y
-`endDate`          | `게시 마지막 날짜`                    | `yyyy/mm/dd hh/MM/ss`    | Y
+`startDate`        | `게시 시작 날짜`                      | `yyyy/mm/dd hh:MM:ss`    | Y
+`endDate`          | `게시 마지막 날짜`                    | `yyyy/mm/dd hh:MM:ss`    | Y
 `z-index`          | `z-index`                            | `100`                    | N  , default:300
 `background-color` | `배경색`                              | `#ccc`                   | N  , default:#ffffff
 
