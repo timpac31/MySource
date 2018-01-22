@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>sample</title>
+  <script src="popup.js"></script>
+ </head>
+ <body>
+		<h4>팝업 테스트</h4>
+
+		<!-- 레이어 팝업 -->
+		<div id="mainPopLayer" style="display:none;">
+			<img src="images/img_visual.jpg" />
+		</div>
+
+<script>
+	PopJs.pop({
+		//필수 옴션
+		'id' : 'mainPopLayer', 
+		'left' : '200px',
+		'right' : '300px',
+		'startDate' : '2018/01/07 00:00:00',
+		'endDate' : '2018/12/22 18:00:00',
+
+		//선택옵션
+		'z-index' : '300',				// default 300
+		'background-color' : '#ccc'		// default #ffffff
+	})   
+</script>
+
+ </body>
+</html>
