@@ -41,7 +41,8 @@
 		}else {		//목록
 			sql = " select X.* from ( ";
 			sql +="		select A.*, rownum as rnum from ( ";
-			sql +="			select * from welfaremap " + sqlWhere + " order by seq asc) A "; 
+			sql +="			select w.* from welfaremap w, (select min(seq) as seq from welfaremap " +sqlWhere+ "  group by fname) uniq ";
+			sql +="			where w.seq = uniq.seq order by w.seq asc) A";
 			sql +=" 	where rownum <= " + (Integer.parseInt(page_no)*5) + ") X where rnum > " + ((Integer.parseInt(page_no)-1)*5);
 		}
 		
@@ -72,7 +73,7 @@
 	]
 	
 <%
-	sql = " select count(*) from welfaremap " + sqlWhere;
+	sql = " select count(seq) from  (select min(seq) as seq from welfaremap " +sqlWhere+ "  group by fname) ";
 	rs1 = stmt.executeQuery(sql);
 	while(rs1.next()){
 %>

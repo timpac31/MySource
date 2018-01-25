@@ -161,7 +161,6 @@ MarkerOverlappingRecognizer.prototype = {
 
         this.forEach(function(m) {
             if (m === marker) return;
-
             var rect = self.getOverlapRect(m);
 
             if (rect.intersects(baseRect)) {
@@ -174,6 +173,21 @@ MarkerOverlappingRecognizer.prototype = {
 
         return overlaped;
     },
+
+	/*중복된 시설명 제외한 오버랩 카운트 20180125*/
+	_getLengthRemovedDupTitle: function(overlaped){
+		var uniqueTitle = [];
+		var dupCnt = 0;
+		for(var i=0, ii=overlaped.length; i<ii; i++){		
+			var title = overlaped[i].marker.title;
+			if(uniqueTitle.indexOf(title) == -1) {
+				uniqueTitle.push(title);
+			}else{
+				dupCnt++;
+			}
+		}
+		return overlaped.length - dupCnt;
+	},
 
     _onIdle: function() {
         this._overlapInfoEl.hide();
@@ -207,8 +221,10 @@ MarkerOverlappingRecognizer.prototype = {
             }
 
             if (this._options.intersectNotice) {
+
                 this._overlapInfoEl
-                    .html(this._options.intersectNoticeTemplate.replace(/\{\{count\}\}/g, overlaped.length))
+					.html(this._options.intersectNoticeTemplate.replace(/\{\{count\}\}/g, this._getLengthRemovedDupTitle(overlaped))) /*중복 제거 20180125*/
+                    //.html(this._options.intersectNoticeTemplate.replace(/\{\{count\}\}/g, overlaped.length))		
                     .css({
                         left: offset.x,
                         top: offset.y
@@ -265,6 +281,7 @@ MarkerOverlappingRecognizer.prototype = {
         }
 
         var items = [];
+		var uniqueName = [];
         for (var i=0, ii=overlaped.length; i<ii; i++) {
             var c = overlaped[i],
                 item = $(itemTemplate.replace(/\{\{(\w+)\}\}/g, function(match, symbol) {
@@ -279,8 +296,16 @@ MarkerOverlappingRecognizer.prototype = {
                     }
                 }));
 
-            item.on('click', $.proxy(self._onClickItem, self, c.marker));
-            items.push(item);
+
+			/*중복된 시설명은 push하지 않는다 20180125*/
+			var fname = item[0].textContent.substring(3);
+			if(uniqueName.indexOf(fname) == -1) {
+				uniqueName.push(fname);
+				item.on('click', $.proxy(self._onClickItem, self, c.marker));
+	            items.push(item);
+			}
+			
+            
         };
 
         for (var j=0, jj=items.length; j<jj; j++) {

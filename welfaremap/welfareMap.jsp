@@ -5,19 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="/new_portal/lib/css/welfare-map.css">
+<link rel="stylesheet" href="welfare-map.css">
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 <!-- 네이버지도  -->
-<script type="text/javascript" src="/new_portal/lib/js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=mFhtSsXhUMcrGJAakPip&submodules=geocoder"></script>
-<script type="text/javascript" src="/new_portal/lib/js/MarkerOverlappingRecognizer.js"></script>
-<title>한 눈에 보는 복지자원생태도</title>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=Myid&submodules=geocoder"></script>
+<script type="text/javascript" src="MarkerOverlappingRecognizer.js"></script>
+<title>한눈에 보는 복지자원생태도</title>
 </head>
 
 <body>
 	<div class="welfare-map-wrap">
-		<h1>한 눈에 보는 <strong>복지자원생태도</strong></h1>
+		<h1>한눈에 보는 <strong>복지자원생태도</strong></h1>
+
+		<ul class="other-link">
+			<li><a href="https://www.bokjiro.go.kr/nwel/bokjiroMain.do" title="복지로 한눈에 보는 복지 정보 새 창 열기" target="_blank" class="ico1">한눈에 보는 복지 정보</a></li>
+			<li><a href="main2_5.jsp?show=3" title="강서구 복지 정보 새 창 열기" target="_blank" class="ico2">강서구 복지 정보</a></li>
+		</ul>
 		
 		<!--복지자원 선택-->
 		<div class="welfare-select">
@@ -26,31 +31,31 @@
 					<input type="checkbox" name="category" id="category1" value="행정기관" onclick="javascript:showMarkers();" checked="checked"><label for="category1">행정기관</label>
 				</span>
 				<span class="checks check2">
-					<input type="checkbox" name="category" id="category2" value="복지" onclick="javascript:showMarkers();" checked="checked"><label for="category2">복지</label>
+					<input type="checkbox" name="category" id="category2" value="복지" onclick="javascript:showMarkers();"><label for="category2">복지</label>
 				</span>
 				<span class="checks check3">
-					<input type="checkbox" name="category" id="category3" value="일자리" onclick="javascript:showMarkers();" checked="checked"><label for="category3">일자리</label>
+					<input type="checkbox" name="category" id="category3" value="일자리" onclick="javascript:showMarkers();"><label for="category3">일자리</label>
 				</span>
 				<span class="checks check4">
-					<input type="checkbox" name="category" id="category4" value="장애인" onclick="javascript:showMarkers();" checked="checked"><label for="category4">장애인</label>
+					<input type="checkbox" name="category" id="category4" value="장애인" onclick="javascript:showMarkers();"><label for="category4">장애인</label>
 				</span>
 				<span class="checks check5">
-					<input type="checkbox" name="category" id="category5" value="어르신" onclick="javascript:showMarkers();" checked="checked"><label for="category5">어르신</label>
+					<input type="checkbox" name="category" id="category5" value="어르신" onclick="javascript:showMarkers();"><label for="category5">어르신</label>
 				</span>
 				<span class="checks check6">
-					<input type="checkbox" name="category" id="category6" value="아동청소년" onclick="javascript:showMarkers();" checked="checked"><label for="category6">아동&middot;청소년</label>
+					<input type="checkbox" name="category" id="category6" value="아동청소년" onclick="javascript:showMarkers();"><label for="category6">아동&middot;청소년</label>
 				</span>
 				<span class="checks check7">
-					<input type="checkbox" name="category" id="category7" value="가정" onclick="javascript:showMarkers();" checked="checked"><label for="category7">가정</label>
+					<input type="checkbox" name="category" id="category7" value="가정" onclick="javascript:showMarkers();"><label for="category7">가정</label>
 				</span>
 				<span class="checks check8">
-					<input type="checkbox" name="category" id="category8" value="건강" onclick="javascript:showMarkers();" checked="checked"><label for="category8">건강</label>
+					<input type="checkbox" name="category" id="category8" value="지역사회서비스" onclick="javascript:showMarkers();"><label for="category8">지역사회 서비스</label>
 				</span>
 				<span class="checks check9">
-					<input type="checkbox" name="category" id="category9" value="문화및여가" onclick="javascript:showMarkers();" checked="checked"><label for="category9">문화 및 여가</label>
+					<input type="checkbox" name="category" id="category9" value="문화및여가" onclick="javascript:showMarkers();"><label for="category9">문화 및 여가</label>
 				</span>
 				<span class="checks check10">
-					<input type="checkbox" name="category" id="category10" value="기타" onclick="javascript:showMarkers();" checked="checked"><label for="category10">기타</label>
+					<input type="checkbox" name="category" id="category10" value="기타" onclick="javascript:showMarkers();"><label for="category10">기타</label>
 				</span>
 			</form>
 		</div>
@@ -66,7 +71,7 @@
 				<form name="frm" onsubmit="return false;">
 					<h2>찾아보기</h2>
 					<span class="f-item wid-20">
-						<select name="cate_large" id="cate_large">
+						<select name="cate_large" id="cate_large" title="대분류">
 							<option value="">대분류(전체)</option>
 							<option value="행정기관">행정기관</option>
 							<option value="복지">복지</option>
@@ -75,17 +80,17 @@
 							<option value="어르신">어르신</option>
 							<option value="아동청소년">아동청소년</option>
 							<option value="가정">가정</option>
-							<option value="건강">건강</option>
+							<option value="지역사회서비스">지역사회서비스</option>
 							<option value="문화및여가">문화및여가</option>
 							<option value="기타">기타</option>
 						</select>
 					</span>
 					<span class="f-item wid-20">
-						<select name="cate_small" id="cate_small">
+						<select name="cate_small" id="cate_small" title="소분류">
 							<option value="">소분류(전체)</option>
 						</select>
 					</span>
-					<span class="f-item wid-30"><input type="text" name="fname" placeholder="시설명"></span>
+					<span class="f-item wid-30"><input type="text" name="fname" placeholder="시설명" title="시설명"></span>
 					<button class="btn btn-dark btn-search" type="button" onclick="javascript:getList(1);">찾기</button>
 				</form>
 			</div>
@@ -94,7 +99,12 @@
 			<div id="mapList" style="display:none;" class="welfare-list"></div>
 			<div id="mapView" style="display:none;" class="welfare-view-wrap"></div>
 
+			
+			<!--<input type="text" id="findAnchor"/><a href="javascript:getAnchor();">검색</a>
+			<input type="text" id="resultAnchor"/> -->
+			
 		</div>
+
 	</div>
 
 <script>
@@ -162,7 +172,7 @@ function setIcon(idx) {
 	if(cates[i] == "가정"){
 		return "rc/img/cate-point7.png";
 	}
-	if(cates[i] == "건강"){
+	if(cates[i] == "지역사회서비스"){
 		return "rc/img/cate-point8.png";
 	}
 	if(cates[i] == "문화및여가"){
@@ -176,7 +186,7 @@ function setIcon(idx) {
 
 
 // 마커 ,인포윈도우 생성
-for(var i=0; i<seqs.length; i++) {
+for(var i=0, ii=seqs.length; i<ii; i++) {
 	var marker = new naver.maps.Marker({
 	    position: new naver.maps.LatLng(anchorys[i], anchorxs[i]),
 	    map: map,
@@ -238,17 +248,14 @@ function showMarkers() {
 			if(cates[i] == this.value)	checkYn = true;
 		});
 		
-		if(checkYn){
-			markers[i].setVisible(true);
-		}else {
-			markers[i].setVisible(false);
-		}
+		markers[i].setVisible(checkYn);
 	}
 }
+showMarkers(); //초기화 행정기관만
 
 //해당 좌표로 센터 설정 and 해당마커만 보이기
 function setCenter(x, y, seq) {
-	for(var i=0; i<markers.length; i++){
+	for(var i=0, ii=markers.length; i<ii; i++){
 		markers[i].setVisible(false);
 	}
 	markers[seq-1].setVisible(true);
@@ -265,6 +272,7 @@ function closeInfoWindow(idx) {
 //좌표찾기 임시
 function getAnchor() {
 	var addr = $('#findAnchor').val();
+	console.log(addr);
 	naver.maps.Service.geocode({
         address: addr
     }, function(status, response) {
@@ -301,7 +309,7 @@ function getList(page) {
 		async: false,
 		success: function(data){
 			
-			var html = "<table><thead>"
+			var html = "<table><caption style='height:0px;font-size:0px;line-height:0;text-indent:-999em;'>지도목록</caption><thead>"
 			+ "<tr><th scope=\"col\" style=\"padding:0 10px\">번호</th><th scope=\"col\">시설명</th><th scope=\"col\">주소</th>"
 			+ "<th scope=\"col\">전화번호</th><th scope=\"col\">상세정보</th></tr></thead><tbody>";
 			
@@ -359,12 +367,12 @@ function detail(seq) {
 		data : {"seq":seq},
 		dataType: 'json',
 		success: function(data){
-			var inhtml = "<h3>"+data.fname+"</h3>";			
+			var inhtml = "<h2>"+data.fname+"</h2>";
 			inhtml += "<ul class=\"welfare-view-list\">"
 				 + "<li><span class=\"badge\">주소</span>"+data.addr+"</li>"
 				 + "<li><span class=\"badge\">전화</span>"+data.tel+"</li>"
 				 + "<li><span class=\"badge\">홈페이지</span><a href=\""+data.homepage+"\" target=\"_blank\" title=\"새 창열기\">"+data.homepage+"</a></li></ul>"
-				 + "<h2>"+data.detail+"</h2>";				 
+				 + "<p>"+data.detail+"</p>";
 			$('#mapView').html(inhtml);
 				 
 			if($('#btn_list').length == 0) {	//지도 윈도인포에서 자세히보기 클릭시 목록버튼 중복추가 방지

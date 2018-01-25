@@ -1,0 +1,213 @@
+@charset "utf-8";
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	width:100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img{border:0;vertical-align:top;}
+button{background:none;border:0;font-family:'notokr-regular';cursor:pointer;}
+
+@font-face {
+    font-family: 'notokr-bold';
+    src: url('/new_portal/lib/font/notokr-bold.eot');
+    src: url('/new_portal/lib/font/notokr-bold.eot?#iefix') format('embedded-opentype'),
+        url('/new_portal/lib/font/notokr-bold.woff2') format('woff2'),
+        url('/new_portal/lib/font/notokr-bold.woff') format('woff'),
+        url('/new_portal/lib/font/notokr-bold.ttf') format('truetype'),
+        url('/new_portal/lib/font/notokr-bold.svg#notokr-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'notokr-regular';
+    src: url('/new_portal/lib/font/notokr-regular.eot');
+    src: url('/new_portal/lib/font/notokr-regular.eot?#iefix') format('embedded-opentype'),
+        url('/new_portal/lib/font/notokr-regular.woff2') format('woff2'),
+        url('/new_portal/lib/font/notokr-regular.woff') format('woff'),
+        url('/new_portal/lib/font/notokr-regular.ttf') format('truetype'),
+        url('/new_portal/lib/font/notokr-regular.svg#notokr-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{font:14px/1 'notokr-regular','맑은 고딕','Malgun Gothic','돋움',Dotum,Arial,sans-serif;background:#efede9;}
+a{text-decoration:none;color:#6d635b;}
+a:hover{text-decoration:none;}
+.welfare-map-wrap{width:1200px;margin:0 auto;padding:0 0 40px;line-height:1.5;color:#565453;}
+.welfare-map-wrap form *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.welfare-map-wrap > h1{padding:20px 0;font-size:51px;text-align:center;color:#000;}
+.welfare-map-wrap > h1 > strong{font-family:'notokr-bold';}
+.welfare-map-wrap > h1:before{content:'';display:inline-block;margin:0 20px -15px 0;width:106px;height:64px;background:url(/new_portal/living/rc/img/tit-icon.png) 0 0 no-repeat;}
+
+.other-link{margin-bottom:30px;text-align:center;}
+.other-link li{display:inline-block;margin:0 10px;width:397px;height:60px;line-height:55px;}
+.other-link li a{display:block;width:100%;height:100%;font-family:'notokr-bold';font-size:20px;color:#6d635b;border:2px solid #6d635b;-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;background:#fff;}
+.other-link li a:hover{border-color:#413c38;color:#000;}
+.other-link li a.ico1:before{content:'';display:inline-block;margin:0 15px -13px 0;width:80px;height:41px;background:url(/new_portal/living/rc/img/ico-bokjiro.png) 0 0 no-repeat;}
+.other-link li a.ico2:before{content:'';display:inline-block;margin:0 15px -13px 0;width:45px;height:45px;background:url(/new_portal/living/rc/img/ico-gs.png) 0 0 no-repeat;}
+
+.welfare-select{text-align:center;}
+.checks{position: relative;}
+.checks input[type="checkbox"] {
+	/* 실제 체크박스는 화면에서 숨김 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0
+}
+
+.checks input[type="checkbox"] + label {
+	display: inline-block;
+	position: relative;
+	width:117px;
+	height:117px;
+	border:1px solid #c7c2b7;
+	font-size:16px;
+	color:#857f72;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.checks input[type="checkbox"] + label:before{
+	content:'';
+	display:block;
+	margin:18px auto 5px;
+	width:50px;
+	height:50px;
+	background:url(/new_portal/living/rc/img/ico-category1.png) 0 -50px no-repeat;
+}
+
+/*카테고리별 아이콘 표시*/
+.check1 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category1.png);}
+.check2 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category2.png);}
+.check3 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category3.png);}
+.check4 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category4.png);}
+.check5 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category5.png);}
+.check6 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category6.png);}
+.check7 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category7.png);}
+.check8 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category8.png);}
+.check9 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category9.png);}
+.check10 input[type="checkbox"] + label:before{background-image:url(/new_portal/living/rc/img/ico-category10.png);}
+
+/*카테고리별 선택 시*/
+.checks input[type="checkbox"]:checked + label{border:0;vertical-align:top;font-family:'notokr-bold';color:#fff;}
+.checks input[type="checkbox"]:checked + label:before{background-position:0 0;}
+.check1 input[type="checkbox"]:checked + label{background-color:#ff4c23;}
+.check2 input[type="checkbox"]:checked + label{background-color:#ff9f19;}
+.check3 input[type="checkbox"]:checked + label{background-color:#e6d739;}
+.check4 input[type="checkbox"]:checked + label{background-color:#00cc44;}
+.check5 input[type="checkbox"]:checked + label{background-color:#0fc0c5;}
+.check6 input[type="checkbox"]:checked + label{background-color:#49c8f2;}
+.check7 input[type="checkbox"]:checked + label{background-color:#3d99f5;}
+.check8 input[type="checkbox"]:checked + label{background-color:#7961f2;}
+.check9 input[type="checkbox"]:checked + label{background-color:#e667e6;}
+.check10 input[type="checkbox"]:checked + label{background-color:#ff5975;}
+
+.map{margin-top:10px;min-height:500px;border:2px solid #6d635b;background:#fff;}
+.welfare-list-wrap{margin-top:30px;}
+.welfare-search{padding:20px;border:2px solid #c7c2b7;text-align:center;}
+.welfare-search h2{display:inline-block;margin-right:20px;font-family:'notokr-bold';font-size:24px;color:#362f2d;}
+.welfare-search h2:before{content:'\f2f5';display:inline-block;margin-right:7px;font-family:'Ionicons';font-size:28px;color:#6d635b;}
+.f-item{display:inline-block;}
+.f-item select,
+.f-item input[type="text"]{display:inline-block;width:100%;padding:10px 10px;border:1px solid #aea79e;background:#fff;font-family:'notokr-regular';font-size:14px;color:#7f726f;}
+.f-item input[type="text"]{padding:11px 10px;}
+.wid-20{width:20%;}
+.wid-30{width:30%;}
+
+.btn{display:inline-block;border:1px solid #bfb8a7;background:#fff;}
+.btn-dark{border-color:#2a2625;background:#362f2d;color:#fff;-webkit-transition:background 0.45s;-o-transition:background 0.45s;transition:background 0.45s;}
+.btn-dark:hover{text-decoration:none;background:#090808;}
+.btn-search{padding:10px 30px;font-size:15px;}
+.btn-detail{padding:4px 12px;border-radius:3px;font-size:13px;}
+.btn-detail:before{content:'\f48b';display:inline-block;margin-right:5px;font-family:'Ionicons';}
+.btn-list{padding:14px 50px;font-family:'notokr-bold';font-size:21px;}
+.btn-list:before{content:'\f3d5';display:inline-block;margin-right:10px;font-family:'Ionicons';}
+.btn-small{padding:4px 10px;margin-right:5px;}
+
+.welfare-list{margin-top:20px;}
+.welfare-list thead th{padding:10px 0;background:#6d635b;border-bottom:2px solid #413c38;color:#fff;}
+.welfare-list tbody td{padding:5px 0;border-bottom:1px solid #d7d5d1;text-align:center;}
+.welfare-list tbody tr:hover td{background-color:rgba(0,0,0,0.03);}
+.a-left{text-align:left !important;}
+.paging{margin-top:20px;text-align:center;}
+.paging > a{display:inline-block;overflow:hidden;width:38px;height:38px;line-height:38px;border:1px solid #a09b90; margin-right:3px;}
+.paging > a:hover{background:#fff;}
+.paging > a.on{background:#6d635b;border-color:#504c49;color:#fff;}
+.btn-prev:before{content:'\f124';display:block;font-family:'Ionicons';}
+.btn-next:before{content:'\f125';display:block;font-family:'Ionicons';}
+
+/*상세정보*/
+.welfare-view-wrap{margin-top:20px;padding:30px 50px;border:1px solid #c7c2b7;background:#fff;}
+.welfare-view-wrap > h2{font-family:'notokr-bold';font-size:24px;color:#362f2d;}
+.welfare-view-wrap > h2:before{content:'\f11d';display:inline-block;margin-right:7px;font-family:'Ionicons';font-size:28px;color:#6d635b;}
+.welfare-view-wrap > h3{margin-top:10px;font-family:'notokr-bold';font-size:17px;color:#3f3b3a;}
+.welfare-view-wrap > p{margin-top:10px;}
+.welfare-view-list{margin-top:10px;overflow:hidden;}
+.welfare-view-list > li{float:left;margin-right:25px;}
+.badge{display:inline-block;margin-right:10px;padding:1px 5px;border-radius:10px;border:1px solid #bfb8a7;background:#faf7f2;font-size:12px;color:#7f726f;}
+.btn-wrap{margin-top:30px;text-align:center;}
+
+/*말풍선*/
+.talk-bubble{position:relative;display:inline-block;border-radius:5px;background:#fff;font-size:12px;}
+.talk-bubble:after{content:'';display:block;position:absolute;bottom:-33px;left:50%;margin-left:-11px;width:22px;height:33px;}
+.talk-bubble-inner{padding:15px 10px;}
+.talk-tit{display:block;padding:10px 0;background:#f5f5f5;text-align:center;font-family:'notokr-bold';font-size:14px;color:#251d16;}
+.talk-bubble .badge{font-size:11px;}
+.talk-bubble li{margin-bottom:3px;}
+.talk-btns{margin-top:10px;text-align:center;}
+
+.conts-postinfo-new {text-align:center; margin-top:30px;}
+.conts-postinfo-new b {font-weight:bold;}
