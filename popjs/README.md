@@ -46,6 +46,7 @@ option name        | Description                          | ex                  
 `endDate`          | `게시 마지막 날짜`                    | `yyyy/mm/dd hh:MM:ss`    | Y
 `z-index`          | `z-index`                            | `100`                    | N  , default:300
 `background-color` | `배경색`                              | `#ccc`                   | N  , default:#ffffff
-
+`width`            | `가로 크기`				| `1000px`		  | N  ,  default:100%
+`align-center`	   | `가운데 정렬`				| true or false		  | N , default:false
 ## License
 timpac31

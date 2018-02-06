@@ -1,7 +1,7 @@
 /**
  * layer popup 
- * auth : jyd@moren.co.kr
- * since : 2018.01. 
+ * @auth : ydcho@moren.co.kr
+ * @since : 2018.01. 
  */
 
 var PopJs = {
@@ -18,19 +18,21 @@ var PopJs = {
 		popObj.left = options['left'];
 		popObj.top = options['top'];
 		popObj.startDate = options['startDate'];
-		popObj.endDate = options['endDate'];		
+		popObj.endDate = options['endDate'];
 		//선택 옵션
 		options.hasOwnProperty('z-index') ? popObj.zIndex = options['z-index'] : popObj.zIndex = "300";
 		options.hasOwnProperty('background-color') ? popObj.backgroundColor = options['background-color'] : popObj.backgroundColor = "#ffffff";
+		options.hasOwnProperty('align-center') ? popObj.alignCenter = options['align-center'] : popObj.alignCenter = false;
+		options.hasOwnProperty('width') ? popObj.width = options['width'] : popObj.width = '100%';
 		
-		if(this.isValid(popObj.startDate, popObj.endDate)) 
+		if(this.isValid.call(popObj)) 
 			this.createPopup(popObj);
 	},
 	
 	//팝업기간 and 오늘하루안보기 쿠키 체크   ex)2018/01/12 12:00:00
-	isValid: function(startDate, endDate) {
-		var sdate= new Date(startDate);
-	    var edate= new Date(endDate);
+	isValid: function() {
+		var sdate= new Date(this.startDate);
+	    var edate= new Date(this.endDate);
 	    var now = new Date().getTime();
 		
 		return now >= sdate && now <= edate && document.cookie.indexOf('mainPop') == -1; 
@@ -39,15 +41,19 @@ var PopJs = {
 	//팝업창 및 오버레이 div 만들기
 	createPopup: function(popObj) {
 		var popDiv = document.getElementById(popObj.id);
-		popDiv.style.position = "absolute";
-		popDiv.style.left = popObj.left;
+
+		popDiv.style.position = "absolute";			
 		popDiv.style.top = popObj.top;
+console.log(window.screen.width);
+console.log(popObj.width.replace('px', ''));
+		popDiv.style.left = ( popObj.alignCenter ? ( Math.ceil((window.screen.width - popObj.width.replace('px', ''))/2) + 'px') : popObj.left );
+console.log(Math.ceil((window.screen.width - popObj.width.replace('px', ''))/2) );
 		popDiv.style.zIndex = popObj.zIndex;
-		popDiv.style.backgroundColor = popObj.backgroundColor;
+		popDiv.style.backgroundColor = popObj.backgroundColor;			
 		
 		popDiv.insertAdjacentHTML( 'beforeend', this.closeEl );
 		popDiv.insertAdjacentHTML( 'afterend', this.overlay );
-		
+	
 		this.on(popObj.id);
 		
 		document.getElementById("closePop").addEventListener("click", function(){

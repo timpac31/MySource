@@ -8,24 +8,42 @@
  <body>
 		<h4>팝업 테스트</h4>
 
-		<!-- 레이어 팝업 -->
-		<div id="mainPopLayer" style="display:none;">
+		<!-- 레이어 팝업1 -->
+		<div id="mainPopLayer1" style="display:none;">
+			<img src="images/img_visual.jpg" />
+		</div>
+
+		<!-- 레이어 팝업2 -->
+		<div id="mainPopLayer2" style="display:none;">
 			<img src="images/img_visual.jpg" />
 		</div>
 
 <script>
 	PopJs.pop({
 		//필수 옴션
-		'id' : 'mainPopLayer', 
-		'left' : '200px',
-		'right' : '300px',
+		'id' : 'mainPopLayer1', 
+		'left' : '100px',
+		'top' : '100px',
+		'startDate' : '2018/01/07 00:00:00',
+		'endDate' : '2018/12/22 18:00:00',
+	}); 
+
+	PopJs.pop({
+		//필수 옴션
+		'id' : 'mainPopLayer2', 
+		'left' : '100px',
+		'top' : '300px',
 		'startDate' : '2018/01/07 00:00:00',
 		'endDate' : '2018/12/22 18:00:00',
 
 		//선택옵션
+		'width' : '1100px',
+		'align-center' : true,
 		'z-index' : '300',				// default 300
 		'background-color' : '#ccc'		// default #ffffff
-	})   
+	});
+
+	 
 </script>
 
  </body>
