@@ -24,6 +24,8 @@
 		'right' : '300px',
 		'startDate' : '2018/01/07 00:00:00',
 		'endDate' : '2018/12/22 18:00:00',
+		'align-center' : true,
+		'cookieName' : 'mainPop20181205',
 
 		//선택옵션
 		'z-index' : '300',				// default 300
@@ -48,5 +50,6 @@ option name        | Description                          | ex                  
 `background-color` | `배경색`                              | `#ccc`                   | N  , default:#ffffff
 `width`            | `가로 크기`				| `1000px`		  | N  ,  default:100%
 `align-center`	   | `가운데 정렬`				| true or false		  | N , default:false
+`cookieName`       | `쿠키이름`                             | 'mainpop'               | N
 ## License
 timpac31
