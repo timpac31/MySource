@@ -1,5 +1,5 @@
 /**
- * layer popup : ì§€ì •ëœ ì˜µì…˜(ê²Œì‹œê¸°ê°„,ìœ„ì¹˜,ë°°ê²½ìƒ‰ë“±)ìœ¼ë¡œ ë ˆì´ì–´íŒì—…ì„ ë„ìš´ë‹¤.
+ * layer popup : ÁöÁ¤µÈ ¿É¼Ç(°Ô½Ã±â°£,À§Ä¡,¹è°æ»öµî)À¸·Î ·¹ÀÌ¾îÆË¾÷À» ¶ç¿î´Ù.
  * auth : ydcho@moren.co.kr
  * since : 2018.01. 
  * usage : https://github.com/timpac31/MySource/tree/master/popjs
@@ -7,20 +7,20 @@
 
 var PopJs = {
 	closeEl : '<div id="close" style="font-size:14px; background-color:#ffffff; width:100%; text-align:right; color:#1e1e1e;">'
-			+ '<b> ì˜¤ëŠ˜ ê·¸ë§Œ ë³´ê¸°</b> <input type="checkbox" name="Notice">'
-			+ '<a href="#" id="closePop" style="margin-left:10px;padding:2px;"><img src="/new_portal/renewal_img/btn_close.gif" width="20px" alt="ë‹«ê¸°"></a></div>',
+			+ '<b> ¿À´Ã ±×¸¸ º¸±â</b> <input type="checkbox" name="Notice">'
+			+ '<a href="#" id="closePop" style="margin-left:10px;padding:2px;"><img src="/new_portal/renewal_img/btn_close.gif" width="20px" alt="´İ±â"></a></div>',
 	
 	overlay : '<div id="overlay" style="position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);z-index:2;"></div>',
 	
 	pop: function(options) {
 		var popObj = new Object();
-		//í•„ìˆ˜ì˜µì…˜
+		//ÇÊ¼ö¿É¼Ç
 		popObj.id = options['id'];
 		popObj.left = options['left'];
 		popObj.top = options['top'];
 		popObj.startDate = options['startDate'];
 		popObj.endDate = options['endDate'];
-		//ì„ íƒ ì˜µì…˜
+		//¼±ÅÃ ¿É¼Ç
 		options.hasOwnProperty('z-index') ? popObj.zIndex = options['z-index'] : popObj.zIndex = "300";
 		options.hasOwnProperty('background-color') ? popObj.backgroundColor = options['background-color'] : popObj.backgroundColor = "#ffffff";
 		options.hasOwnProperty('align-center') ? popObj.alignCenter = options['align-center'] : popObj.alignCenter = false;
@@ -31,7 +31,7 @@ var PopJs = {
 			this.createPopup(popObj);
 	},
 	
-	//íŒì—…ê¸°ê°„ and ì˜¤ëŠ˜í•˜ë£¨ì•ˆë³´ê¸° ì¿ í‚¤ ì²´í¬   ex)2018/01/12 12:00:00
+	//ÆË¾÷±â°£ and ¿À´ÃÇÏ·ç¾Èº¸±â ÄíÅ° Ã¼Å©   ex)2018/01/12 12:00:00
 	isValid: function() {
 		var sdate= new Date(this.startDate);
 	    var edate= new Date(this.endDate);
@@ -40,7 +40,7 @@ var PopJs = {
 		return now >= sdate && now <= edate && document.cookie.indexOf(this.cookieName) == -1; 
 	},
 	
-	//íŒì—…ì°½ ë° ì˜¤ë²„ë ˆì´ div ë§Œë“¤ê¸°
+	//ÆË¾÷Ã¢ ¹× ¿À¹ö·¹ÀÌ div ¸¸µé±â
 	createPopup: function(popObj) {
 		var popDiv = document.getElementById(popObj.id);
 
@@ -57,14 +57,14 @@ var PopJs = {
 		popDiv.style.zIndex = popObj.zIndex;
 		popDiv.style.backgroundColor = popObj.backgroundColor;			
 		
-		popDiv.insertAdjacentHTML( 'beforeend', this.closeEl );
-		popDiv.insertAdjacentHTML( 'afterend', this.overlay );
+		if(!document.getElementById('close')) popDiv.insertAdjacentHTML( 'beforeend', this.closeEl );
+		if(!document.getElementById('overlay')) popDiv.insertAdjacentHTML( 'afterend', this.overlay );
 	
 		this.on(popObj.id);
 		
 		document.getElementById("closePop").addEventListener("click", function(){
 			if (document.getElementsByName("Notice")[0].checked) {
-				PopJs.setCookie(popObj.cookieName, 'done', '1');	//í•˜ë£¨ë™ì•ˆ ì—´ì§€ì•ŠìŒ
+				PopJs.setCookie(popObj.cookieName, 'done', '1');	//ÇÏ·çµ¿¾È ¿­Áö¾ÊÀ½
 		    }
 			PopJs.off(popObj.id);
 		});
