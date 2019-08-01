@@ -52,4 +52,4 @@ option name        | Description                          | ex                  
 `align-center`	   | `가운데 정렬`				| true or false		  | N , default:false
 `cookieName`       | `쿠키이름`                             | 'mainpop'               | N
 ## Auth
-timpac31
+timpac31@gmail.com
