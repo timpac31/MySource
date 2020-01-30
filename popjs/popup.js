@@ -26,6 +26,7 @@ var PopJs = {
 		options.hasOwnProperty('align-center') ? popObj.alignCenter = options['align-center'] : popObj.alignCenter = false;
 		options.hasOwnProperty('width') ? popObj.width = options['width'] : popObj.width = '100%';
 		options.hasOwnProperty('cookieName') ? popObj.cookieName = options['cookieName'] : popObj.cookieName = 'mainPop';
+		options.hasOwnProperty('overlay') ? popObj.overlay = options['overlay'] : popObj.overlay = true;
 		
 		if(this.isValid.call(popObj)) 
 			this.createPopup(popObj);
@@ -57,8 +58,12 @@ var PopJs = {
 		popDiv.style.zIndex = popObj.zIndex;
 		popDiv.style.backgroundColor = popObj.backgroundColor;			
 		
-		if(!document.getElementById('close')) popDiv.insertAdjacentHTML( 'beforeend', this.closeEl );
-		if(!document.getElementById('overlay')) popDiv.insertAdjacentHTML( 'afterend', this.overlay );
+		if(!document.getElementById('close')) {
+			popDiv.insertAdjacentHTML( 'beforeend', this.closeEl );
+		}
+		if(!document.getElementById('overlay') && popObj.overlay) {
+			popDiv.insertAdjacentHTML( 'afterend', this.overlay );
+		}
 	
 		this.on(popObj.id);
 		
@@ -78,11 +83,13 @@ var PopJs = {
 
 	on: function(id) {
 		document.getElementById(id).style.display = "block";
-	    document.getElementById("overlay").style.display = "block";
+		if(document.getElementById("overlay"))
+			document.getElementById("overlay").style.display = "block";
 	},
 	off: function(id) {
 	    document.getElementById(id).style.display = "none";
-	    document.getElementById("overlay").style.display = "none";
+		if(document.getElementById("overlay"))
+		    document.getElementById("overlay").style.display = "none";
 	}
 	
 
