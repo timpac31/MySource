@@ -51,5 +51,6 @@ option name        | Description                          | ex                  
 `width`            | `가로 크기`				| `1000px`		  | N  ,  default:100%
 `align-center`	   | `가운데 정렬`				| true or false		  | N , default:false
 `cookieName`       | `쿠키이름`                             | 'mainpop'               | N
+`overlay`          | `팝업창 뒷 배경 흐리게                  | true or false           | Y
 ## Auth
 timpac31@gmail.com
