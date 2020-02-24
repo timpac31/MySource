@@ -6,11 +6,6 @@
  */
 
 var PopJs = {
-	closeEl : '<div id="close" style="font-size:14px; background-color:#ffffff; width:100%; text-align:right; color:#1e1e1e;">'
-			+ '<b> 오늘 그만 보기</b> <input type="checkbox" name="Notice">'
-			+ '<a href="#" id="closePop" style="margin-left:10px;padding:2px;"><img src="/new_portal/renewal_img/btn_close.gif" width="20px" alt="닫기"></a></div>',
-	
-	overlay : '<div id="overlay" style="position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);z-index:2;"></div>',
 	
 	pop: function(options) {
 		var popObj = new Object();
@@ -58,21 +53,29 @@ var PopJs = {
 		popDiv.style.zIndex = popObj.zIndex;
 		popDiv.style.backgroundColor = popObj.backgroundColor;			
 		
-		if(!document.getElementById('close')) {
-			popDiv.insertAdjacentHTML( 'beforeend', this.closeEl );
-		}
-		if(!document.getElementById('overlay') && popObj.overlay) {
-			popDiv.insertAdjacentHTML( 'afterend', this.overlay );
-		}
-	
-		this.on(popObj.id);
+		//오늘하루 보지않기
+		var closeElId = document.getElementsByClassName('close').length;
 		
-		document.getElementById("closePop").addEventListener("click", function(){
-			if (document.getElementsByName("Notice")[0].checked) {
+		var closeEl = '<div id="close' +closeElId+ '" class="close" style="font-size:14px; background-color:#ffffff; width:100%; text-align:right; color:#1e1e1e;">'
+				+ '<b> 오늘 그만 보기</b> <input type="checkbox" name="Notice">'
+				+ '<a href="#" id="closePop' +closeElId+ '" style="margin-left:10px;padding:2px;"><img src="/new_portal/renewal_img/btn_close.gif" width="20px" alt="닫기"></a></div>';
+		
+		var overlay = '<div id="overlay" style="position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);z-index:2;"></div>';
+		
+		popDiv.insertAdjacentHTML( 'beforeend', closeEl );
+
+		document.getElementById("closePop"+closeElId).addEventListener("click", function(){
+			if (document.getElementsByName("Notice")[closeElId].checked) {
 				PopJs.setCookie(popObj.cookieName, 'done', '1');	//하루동안 열지않음
 		    }
 			PopJs.off(popObj.id);
 		});
+		
+		if(!document.getElementById('overlay') && popObj.overlay) {
+			popDiv.insertAdjacentHTML( 'afterend', overlay );
+		}
+	
+		this.on(popObj.id);			
 	},
 
 	setCookie: function(name, value, expiredays) {
