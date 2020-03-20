@@ -34,13 +34,13 @@ var PopJs = {
 	    var now = new Date().getTime();
 		
 		return now >= sdate && now <= edate && document.cookie.indexOf(this.cookieName) == -1; 
-	},
+	},	
 	
 	//팝업창 및 오버레이 div 만들기
 	createPopup: function(popObj) {
 		var popDiv = document.getElementById(popObj.id);
 
-		popDiv.style.position = "absolute";			
+		PopJs.setDefaultStyle(popDiv);
 		popDiv.style.top = popObj.top;
 		
 		if(popObj.alignCenter) {
@@ -76,8 +76,15 @@ var PopJs = {
 		}
 	
 		this.on(popObj.id);			
-	},
+	},	
 
+	setDefaultStyle: function(popDiv) {
+        popDiv.style.position = "absolute";	
+        popDiv.style.border = "2px solid #a3a3a3";
+		popDiv.style.borderRadius = "10px";
+        popDiv.style.padding = "10px";
+	},
+	
 	setCookie: function(name, value, expiredays) {
 		var todayDate = new Date();
 		todayDate.setTime( todayDate.getTime() + (expiredays * 24 * 60 * 60 * 1000) );
