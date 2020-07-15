@@ -53,4 +53,4 @@ option name        | Description                          | ex                  
 `cookieName`       | `쿠키이름`                             | 'mainpop'               | N
 `overlay`          | `팝업창 뒷 배경 흐리게                  | true or false           | Y
 ## Auth
-timpac31@gmail.com
+JYD(timpac61@gmail.com)
