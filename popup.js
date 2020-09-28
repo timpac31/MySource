@@ -43,7 +43,7 @@ var PopJs = {
 		PopJs.setDefaultStyle(popDiv);
 		popDiv.style.top = popObj.top;
 		
-		if(popObj.alignCenter) {
+		if(popObj.alignCenter && window.outerWidth > 700) {
 			popDiv.style.left = "50%";
 			popDiv.style.marginLeft = (popObj.width.replace('px','')/2)*-1 + "px";
 		}else {
