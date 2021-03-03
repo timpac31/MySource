@@ -49,6 +49,10 @@ var PopJs = {
 		}else {
 			popDiv.style.left = popObj.left;
 		}
+		if(window.outerWidth < 500) {
+			popDiv.style.left = "0px";
+		}
+
 		//popDiv.style.left = ( popObj.alignCenter ? ( Math.ceil((window.screen.width - popObj.width.replace('px', ''))/2) + 'px') : popObj.left );
 		popDiv.style.zIndex = popObj.zIndex;
 		popDiv.style.backgroundColor = popObj.backgroundColor;			
@@ -104,4 +108,3 @@ var PopJs = {
 	
 
 };
-
